@@ -1,10 +1,12 @@
 import streamlit as st
 import yfinance as yf
-from nsetools import Nse
 from st_pages import Page,show_pages
 import nsepy as Np
-st.title(':rainbow[Welcome To Trading World] :blue[Be Cool Trader] :sunglasses:')
+import pandas as pd 
+st.title(':rainbow[Welcome To Candy Trading World] :blue[Be Cool Trader] :sunglasses:')
 st.header('Letz be billionaire Together', divider='rainbow')
+
+dataRender = pd.read_html("https://www.moneycontrol.com/india/stockmarket/sector-classification/marketstatistics/nse/agri.html")
 
 
 show_pages(
@@ -17,3 +19,5 @@ show_pages(
 
     ]
 )
+
+st.write(dataRender)
