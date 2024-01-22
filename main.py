@@ -3,10 +3,22 @@ import yfinance as yf
 from st_pages import Page,show_pages
 import nsepy as Np
 import pandas as pd 
+import sqlite3 as sql
+from bs4 import BeautifulSoup
+import requests as rt
+
 st.title(':rainbow[Welcome To Candy Trading World] :blue[Be Cool Trader] :sunglasses:')
 st.header('Letz be billionaire Together', divider='rainbow')
 
+
+def dataPull():
+    pass
+
+
+
 dataRender = pd.read_html("https://www.moneycontrol.com/india/stockmarket/sector-classification/marketstatistics/nse/agri.html")
+
+
 
 
 show_pages(
@@ -20,4 +32,3 @@ show_pages(
     ]
 )
 
-st.write(dataRender)
