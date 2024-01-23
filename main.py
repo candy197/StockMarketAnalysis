@@ -7,8 +7,12 @@ import sqlite3 as sql
 from bs4 import BeautifulSoup
 import requests as rt
 
-st.title(':rainbow[Welcome To Candy Trading World] :blue[Be Cool Trader] :sunglasses:')
+
+
+st.set_page_config(page_title="Home",page_icon=":bar_chart:",layout="wide")
+st.title('Welcome To Candy Trading World :blue[Be Cool Trader] :sunglasses:')
 st.header('Letz be billionaire Together', divider='rainbow')
+st.markdown('<style>div.block-container{padding-top:1rem;}</style>',unsafe_allow_html=True)
 
 
 def dataPull():
