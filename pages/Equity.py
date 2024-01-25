@@ -1,5 +1,4 @@
 import streamlit as st
-import yfinance as yf
 import nsepy as nse
 import pandas as pd
 
@@ -11,8 +10,17 @@ st.markdown('<style>div.block-container{padding-top:1rem;}</style>',unsafe_allow
 indice = pd.read_csv("pages/MarketIndice.csv")
 
 
-option = st.selectbox('Which indice you like to trade?',(indice))
+option = st.selectbox(
+    'How would you like to be contacted?',indice
+   )
+st.write('You selected:', option)
+
+
+
+
 #Fetch like (Low, High,Priviously Closed,R)
+
+
 
 
 

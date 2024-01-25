@@ -8,7 +8,7 @@ import newsapi
 client = newsapi.NewsApiClient('dcd00510f4734ca680f217c72f668c80')
 
 # Get top headlines
-top_headlines = client.get_top_headlines(q="stock",
+top_headlines = client.get_top_headlines(q="stock,",
     category="business",
     language="en",
 )

@@ -7,12 +7,14 @@ import sqlite3 as sql
 from bs4 import BeautifulSoup
 import requests as rt
 import os 
+from newsapi import NewsApiClient
+import newsapi 
 
 
 
 st.set_page_config(page_title="Home",page_icon=":bar_chart:",layout="wide")
-st.title('Welcome To Candy Trading World :blue[Be Cool Trader] :sunglasses:')
-st.header('Market News and Trends', divider='rainbow')
+st.title('Market News and Trends :sunglasses:')
+st.header("", divider="rainbow")
 st.markdown('<style>div.block-container{padding-top:1rem;}</style>',unsafe_allow_html=True)
 Path = os.getcwd()+"/pages/"
 show_pages(
@@ -26,5 +28,22 @@ show_pages(
     ]
 )
 
+col1,col2 = st.columns(2)
+client = newsapi.NewsApiClient('dcd00510f4734ca680f217c72f668c80')
 
+# Get top headlines
+top_headlines = client.get_top_headlines(q="stock",
+    category="business",
+    language="en",
+)
 
+# Print the headlines
+with col1:
+    st.header("Market Top News")
+for article in top_headlines["articles"]:
+    with col1:
+        with st.expander(article["title"]):
+            st.write(article["description"])
+
+with col2:
+    st.header("Market Calender")
