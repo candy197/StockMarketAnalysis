@@ -47,3 +47,18 @@ for article in top_headlines["articles"]:
 
 with col2:
     st.header("Market Calender")
+
+
+#Offline Data Processing
+
+
+def ConnectionCheck():
+    try:
+        response = rt.get("https://dns.tutorialspoint.com", timeout=5)
+        return True
+    except rt.ConnectionError:
+        return False    
+if ConnectionCheck():
+        print("We Can Proccess With online.")
+else:
+    print("Internet is not connected we can still work on Offline data.")
