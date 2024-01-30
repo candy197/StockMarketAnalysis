@@ -27,7 +27,7 @@ show_pages(
 
     ]
 )
-
+indice = pd.read_csv("pages/MarketIndice.csv")
 col1,col2 = st.columns(2)
 client = newsapi.NewsApiClient('dcd00510f4734ca680f217c72f668c80')
 
@@ -46,7 +46,12 @@ for article in top_headlines["articles"]:
             st.write(article["description"])
 
 with col2:
-    st.header("Market Calender")
+    st.header("Nifty Index")
+    option = st.selectbox(
+    'Which index you want to Select?',indice)
+    st.write('You selected:', option)
+
+
 
 
 #Offline Data Processing
@@ -54,11 +59,11 @@ with col2:
 
 def ConnectionCheck():
     try:
-        response = rt.get("https://dns.tutorialspoint.com", timeout=5)
+        response = rt.get("https://www.moneycontrol.com", timeout=5)
         return True
     except rt.ConnectionError:
         return False    
-if ConnectionCheck():
+if ConnectionCheck() == True:
         print("We Can Proccess With online.")
 else:
     print("Internet is not connected we can still work on Offline data.")
