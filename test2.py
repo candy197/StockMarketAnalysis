@@ -23,10 +23,12 @@ for row in rows:
         row_data.append(cell.text.strip())
     data.append(row_data)
 
-
 df = pd.DataFrame(data)
+df.columns= columns=("Company Name","Industry","Last Price","Change","Change %","Market Cap")                 
 
-
-df.to_csv("test.csv")
-
-print(df)
+for name in df["Company Name"]:
+   if  name != None and len(name) != 0:
+    queryname = name.replace("-","_").replace(" ","_").replace("(","_").replace(")","_").replace(".","").capitalize()       
+    query = "CREATE TABLE if not exists {}(SYMBOL varchar(255),Company Name varchar(25),Industry varchar(255),HIGH numeric(255),LOW numeric(255))".format(queryname)  
+    print(query)       
+    con_obj.execute(query)
