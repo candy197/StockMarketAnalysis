@@ -7,7 +7,7 @@ import sqlite3 as sql
 from bs4 import BeautifulSoup
 import requests as rt
 import os 
-from newsapi import NewsApiClient
+from newsapi.newsapi_client import NewsApiClient
 import newsapi 
 
 
@@ -28,24 +28,9 @@ show_pages(
     ]
 )
 indice = pd.read_csv("pages/MarketIndice.csv")
-col1,col2 = st.columns(2)
-client = newsapi.NewsApiClient('dcd00510f4734ca680f217c72f668c80')
+col1=st.columns(1)
 
-# Get top headlines
-top_headlines = client.get_top_headlines(q="stock",
-    category="business",
-    language="en",
-)
-
-# Print the headlines
 with col1:
-    st.header("Market Top News")
-for article in top_headlines["articles"]:
-    with col1:
-        with st.expander(article["title"]):
-            st.write(article["description"])
-
-with col2:
     st.header("Nifty Index")
     option = st.selectbox(
     'Which index you want to Select?',indice)
