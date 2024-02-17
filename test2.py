@@ -32,3 +32,4 @@ for name in df["Company Name"]:
     query = "CREATE TABLE if not exists {}(SYMBOL varchar(255),Company Name varchar(25),Industry varchar(255),HIGH numeric(255),LOW numeric(255))".format(queryname)  
     print(query)       
     con_obj.execute(query)
+
