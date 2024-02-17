@@ -60,7 +60,3 @@ with tqdm(total=len(href_tags),desc="Creating Tables") as pbar:
         SectorExtractor(name.lower())
         pbar.update(1)
 print("Completed Successfully")
-
-
-
-ppppppp
